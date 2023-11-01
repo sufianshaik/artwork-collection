@@ -24,12 +24,12 @@ const routes: Routes = [
   },
   {
     path : '',
-    redirectTo : 'art-collection',
+    redirectTo : 'home',
     pathMatch : 'full'
   },
   {
     path : "**",
-    redirectTo : "art-collection",
+    redirectTo : "home",
     pathMatch : 'full'
   }
 
