@@ -1,0 +1,33 @@
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-6">
+            <div class = "text-center"> 
+                <h1 class = "display-2">{{collectionDetail?.title}}</h1>
+                <p>{{collectionDetail?.place_of_origin}}</p>
+            </div>
+            <div class = "container">
+                <span>
+                    <h2 class = "display-5">Publication History</h2>
+                    <p>{{collectionDetail?.publication_history}}</p>
+                </span>
+                <span>
+                    <h2 class = "display-5">Exhibition History</h2>
+                    <p>{{collectionDetail?.exhibition_history}}</p>
+                </span>
+            </div>
+        </div>
+        <div class = "col-6">
+            <img  width="100%" style="max-height: 500px;" alt="{{collectionDetail?.medium_display}}" class="img-fluid" src = "https://www.artic.edu/iiif/2/{{collectionDetail?.image_id}}/full/843,/0/default.jpg">
+            <div class ="float-right">
+                <span>
+                    {{collectionDetail?.artwork_type_title}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button mat-raised-button routerLink="../">
+            Back
+        </button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+
+ <article class="card">
+  <div class="card-int">
+      <span class="card__span">{{artDetail.artwork_type_title}}</span>
+      <div class="img">
+        <img src="https://www.artic.edu/iiif/2/{{artDetail.image_id}}/full/843,/0/default.jpg" style="width: 100%; height: 100%;">
+      </div>
+      <div class="card-data">
+        <p class="title">{{ (artDetail.title.length > 25) ? (artDetail.title.slice(0,25) + '..') : (artDetail.title)}}
+        </p><p>{{ (artDetail.description && artDetail.description.length > 0) ? ( artDetail.description.slice(0 , 120)) : ("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")}}</p>
+        <!-- <button class="button" [routerLink]="['/art-collection', artDetail.id]">Explore More</button> -->
+        <div class = "d-flex flex-row justify-content-between align-items-center">
+          <button class ="mx-3 w-50" mat-raised-button [routerLink]="['/art-collection', artDetail.id]">Explore More</button>
+          <mat-icon color = "warn" *ngIf="!likedSet.has(artDetail.id)"  (click) = "addToFav(artDetail.id)">favorite_border</mat-icon>
+          <mat-icon color = "warn" *ngIf="likedSet.has(artDetail.id)" (click) = "removeFromFav(artDetail.id)">favorite</mat-icon>
+        </div>
+      </div>
+  </div>
+</article>

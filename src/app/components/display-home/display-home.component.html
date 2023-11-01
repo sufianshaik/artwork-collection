@@ -1,0 +1,33 @@
+
+<div class = "mt-4">
+    <form class="form-inline d-flex flex-row align-items-center justify-content-center" [formGroup]="searchForm">
+        <input class="form-control mr-sm-2 w-25 mx-3" type="search" formControlName = "filter" placeholder="Search" aria-label="Search">
+        <span>Search By : {{searchForm.value.filter }}</span>
+    </form>
+</div>
+
+<div class = "d-block form-floating w-25 m-5 ms-auto">
+    <select class ="form-select" #limit (change) = "changeLimit(limit.value)">
+        <!-- <option [defaultSelected]="10">Select the limit</option> -->
+        <option>5</option>
+        <option>10</option>
+        <option>25</option>
+        <option>100</option>
+    </select>
+    <label for="floatingSelect">Select the Limit</label>
+</div>
+
+
+<div class = "container-fluid">
+    <div class="row">
+        <div class ="col-lg-3 col-md-4 col-sm-6 my-3" *ngFor = "let item of artCollectionList | paginate :{itemsPerPage : perPage, currentPage : currentPageNumber, totalItems : totalPages} ; let i = index"> 
+        <app-collection-detail [artDetail]="item" [index]="i"></app-collection-detail> 
+        </div>
+    </div>
+</div>
+
+<div class = "d-block text-center">
+    <pagination-controls (pageChange)="onPageChange($event)">
+    </pagination-controls>
+</div>
+
